@@ -1,10 +1,10 @@
 # WP Post Popularity
 
-Wordpress plugin which keeps track of all time post popularity
+WordPress plugin which keeps track of all time post popularity. The plugin doesn't do anything else other than that. You can reset post views under Settings->Post Popularity but keep in mind that if you are testing you need to reset your session history as well in order to track the count for already visited post again right away.
 
 ### How to use 
 
-Plugin works out of the box but if you want to show the most popular posts you can use following arguments
+If you want to show the most popular posts you can use following arguments to create a query
 
 	$args = array(   
 		'meta_key' => 'post_popularity',   
@@ -13,6 +13,6 @@ Plugin works out of the box but if you want to show the most popular posts you c
 	);   
 	$query = new WP_Query($args);   
 
-Inside loop you can get view count value
+And then inside a loop you can get a view count value like this: 
 
-     get_post_meta(get_the_ID(), 'post_popularity', true)
+    echo get_post_meta(get_the_ID(), 'post_popularity', true);

@@ -1,19 +1,18 @@
 <?php
 /**
- * Plugin Name: BI Post Popularity
- * Description: Keeps track of all time popular posts
- * Version: 1.0.0
+ * Plugin Name: Post Popularity
+ * Description: Keeps track of all time popular posts and pages
+ * Version: 1.1.0
+ * Author: Marko Štimac
+ * Author URI: https://marko-stimac.github.io/
  */
 
-namespace Bideja\PostPopularity;
+namespace ms\PostPopularity;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
-require 'includes/backend.php';
-require 'includes/frontend.php';
+require_once 'includes/class-backend.php';
+require_once 'includes/class-frontend.php';
 
 new Backend();
-$post_popularity = new Frontend();
-add_shortcode('post-popularity', array($post_popularity, 'showComponent'));
+new Frontend();
